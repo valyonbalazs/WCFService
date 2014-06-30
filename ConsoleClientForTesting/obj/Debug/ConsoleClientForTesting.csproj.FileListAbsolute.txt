@@ -1,0 +1,6 @@
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\ConsoleClientForTesting\bin\Debug\ConsoleClientForTesting.exe.config
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\ConsoleClientForTesting\bin\Debug\ConsoleClientForTesting.exe
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\ConsoleClientForTesting\bin\Debug\ConsoleClientForTesting.pdb
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\ConsoleClientForTesting\obj\Debug\ConsoleClientForTesting.exe
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\ConsoleClientForTesting\obj\Debug\ConsoleClientForTesting.pdb
+C:\Users\Darth Sith\Documents\Visual Studio 2013\Projects\WCFService\ConsoleClientForTesting\obj\Debug\ConsoleClientForTesting.csprojResolveAssemblyReference.cache

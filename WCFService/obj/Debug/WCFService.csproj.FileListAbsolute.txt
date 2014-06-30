@@ -1,0 +1,6 @@
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\WCFService\bin\WCFService.dll.config
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\WCFService\bin\WCFService.dll
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\WCFService\bin\WCFService.pdb
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\WCFService\obj\Debug\WCFService.csprojResolveAssemblyReference.cache
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\WCFService\obj\Debug\WCFService.dll
+c:\users\darth sith\documents\visual studio 2013\Projects\WCFService\WCFService\obj\Debug\WCFService.pdb

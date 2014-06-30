@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="09d34f26-05ff-4a4a-a016-62bd4d6c5eb0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59393/WCFServerClient.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WCFServerClient.xsd" MetadataType="Schema" ID="5c197b23-ea46-427e-877d-704f178b85c4" SourceId="1" SourceUrl="http://localhost:59393/WCFServerClient.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCFServerClient1.xsd" MetadataType="Schema" ID="a80d0c51-8f06-4b05-bf27-f7e2a4abed5e" SourceId="1" SourceUrl="http://localhost:59393/WCFServerClient.svc?xsd=xsd2" />
+    <MetadataFile FileName="WCFServerClient2.xsd" MetadataType="Schema" ID="19a65038-565b-4808-aecc-9e2ee16726ef" SourceId="1" SourceUrl="http://localhost:59393/WCFServerClient.svc?xsd=xsd0" />
+    <MetadataFile FileName="WCFServerClient.disco" MetadataType="Disco" ID="06bb50a0-fe0e-43e7-9494-30f966464318" SourceId="1" SourceUrl="http://localhost:59393/WCFServerClient.svc?disco" />
+    <MetadataFile FileName="WCFServerClient.wsdl" MetadataType="Wsdl" ID="57896974-2600-491e-a8e3-2ad264b1ea93" SourceId="1" SourceUrl="http://localhost:59393/WCFServerClient.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

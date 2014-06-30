@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WCFServerClient" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IWCFServerClient_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <cdp:CompositeDuplex xmlns:cdp="http://schemas.microsoft.com/net/2006/06/duplex" />
+        <ow:OneWay xmlns:ow="http://schemas.microsoft.com/ws/2005/05/routing/policy" />
+        <wsam:Addressing>
+          <wsp:Policy>
+            <wsam:NonAnonymousResponses />
+          </wsp:Policy>
+        </wsam:Addressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59393/WCFServerClient.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59393/WCFServerClient.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59393/WCFServerClient.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWCFServerClient_ClientRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientProcesses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientProcesses" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientProcesses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientServices" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientApplications_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientApplications" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ClientApplications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClients" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetProcessById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessById" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetProcessById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopProcessById_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopProcessById" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopProcessById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopProcessByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_RestartProcessById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestartProcessById" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_RestartProcessById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestartProcessByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopServiceByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopServiceByName" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopServiceByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopServiceByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartServiceByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceByName" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartServiceByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartApplicationByPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartApplicationByPath" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartApplicationByPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartApplicationByPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetProcessesFromClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessesFromClient" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetProcessesFromClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessesFromClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetServicesFromClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesFromClient" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetServicesFromClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesFromClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetApplicationsFromClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsFromClient" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetApplicationsFromClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsFromClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_RemoveClientFromList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveClientFromList" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_RemoveClientFromList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveClientFromListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ServerClosed_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServerClosed" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ServerClosed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServerClosedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_Method1_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Method1" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_Method1_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Method1Response" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ProcessById_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ProcessById" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_ProcessById_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ProcessByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopProcessId_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StopProcessId" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopProcessId_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StopProcessIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_RestartProcessId_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RestartProcessId" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_RestartProcessId_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RestartProcessIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopServiceName_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StopServiceName" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StopServiceName_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StopServiceNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartServiceName_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceName" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartServiceName_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartApplicationPath_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StartApplicationPath" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_StartApplicationPath_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:StartApplicationPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetProcessesFromMachine_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessesFromMachine" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetProcessesFromMachine_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetProcessesFromMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetServicesFromMachine_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesFromMachine" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetServicesFromMachine_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesFromMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetApplicationsFromMachine_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsFromMachine" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_GetApplicationsFromMachine_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsFromMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_NotifyServer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyServer" />
+  </wsdl:message>
+  <wsdl:message name="IWCFServerClient_NotifyServer_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyServerResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IWCFServerClient">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ClientRegistration">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/ClientRegistration" message="tns:IWCFServerClient_ClientRegistration_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/ClientRegistrationResponse" message="tns:IWCFServerClient_ClientRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ClientProcesses">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/ClientProcesses" message="tns:IWCFServerClient_ClientProcesses_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/ClientProcessesResponse" message="tns:IWCFServerClient_ClientProcesses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ClientServices">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/ClientServices" message="tns:IWCFServerClient_ClientServices_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/ClientServicesResponse" message="tns:IWCFServerClient_ClientServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ClientApplications">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/ClientApplications" message="tns:IWCFServerClient_ClientApplications_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/ClientApplicationsResponse" message="tns:IWCFServerClient_ClientApplications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetClients">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetClients" message="tns:IWCFServerClient_GetClients_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetClientsResponse" message="tns:IWCFServerClient_GetClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProcessById">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetProcessById" message="tns:IWCFServerClient_GetProcessById_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetProcessByIdResponse" message="tns:IWCFServerClient_GetProcessById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StopProcessById">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StopProcessById" message="tns:IWCFServerClient_StopProcessById_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StopProcessByIdResponse" message="tns:IWCFServerClient_StopProcessById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RestartProcessById">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/RestartProcessById" message="tns:IWCFServerClient_RestartProcessById_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/RestartProcessByIdResponse" message="tns:IWCFServerClient_RestartProcessById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StopServiceByName">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StopServiceByName" message="tns:IWCFServerClient_StopServiceByName_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StopServiceByNameResponse" message="tns:IWCFServerClient_StopServiceByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartServiceByName">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StartServiceByName" message="tns:IWCFServerClient_StartServiceByName_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StartServiceByNameResponse" message="tns:IWCFServerClient_StartServiceByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartApplicationByPath">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StartApplicationByPath" message="tns:IWCFServerClient_StartApplicationByPath_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StartApplicationByPathResponse" message="tns:IWCFServerClient_StartApplicationByPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProcessesFromClient">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetProcessesFromClient" message="tns:IWCFServerClient_GetProcessesFromClient_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetProcessesFromClientResponse" message="tns:IWCFServerClient_GetProcessesFromClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetServicesFromClient">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetServicesFromClient" message="tns:IWCFServerClient_GetServicesFromClient_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetServicesFromClientResponse" message="tns:IWCFServerClient_GetServicesFromClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetApplicationsFromClient">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetApplicationsFromClient" message="tns:IWCFServerClient_GetApplicationsFromClient_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetApplicationsFromClientResponse" message="tns:IWCFServerClient_GetApplicationsFromClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RemoveClientFromList">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/RemoveClientFromList" message="tns:IWCFServerClient_RemoveClientFromList_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/RemoveClientFromListResponse" message="tns:IWCFServerClient_RemoveClientFromList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ServerClosed">
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/ServerClosed" message="tns:IWCFServerClient_ServerClosed_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/ServerClosedResponse" message="tns:IWCFServerClient_ServerClosed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Method1">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/Method1" message="tns:IWCFServerClient_Method1_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/Method1Response" message="tns:IWCFServerClient_Method1_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ProcessById">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/ProcessById" message="tns:IWCFServerClient_ProcessById_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/ProcessByIdResponse" message="tns:IWCFServerClient_ProcessById_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StopProcessId">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StopProcessId" message="tns:IWCFServerClient_StopProcessId_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StopProcessIdResponse" message="tns:IWCFServerClient_StopProcessId_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RestartProcessId">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/RestartProcessId" message="tns:IWCFServerClient_RestartProcessId_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/RestartProcessIdResponse" message="tns:IWCFServerClient_RestartProcessId_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StopServiceName">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StopServiceName" message="tns:IWCFServerClient_StopServiceName_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StopServiceNameResponse" message="tns:IWCFServerClient_StopServiceName_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartServiceName">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StartServiceName" message="tns:IWCFServerClient_StartServiceName_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StartServiceNameResponse" message="tns:IWCFServerClient_StartServiceName_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartApplicationPath">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/StartApplicationPath" message="tns:IWCFServerClient_StartApplicationPath_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/StartApplicationPathResponse" message="tns:IWCFServerClient_StartApplicationPath_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetProcessesFromMachine">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetProcessesFromMachine" message="tns:IWCFServerClient_GetProcessesFromMachine_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetProcessesFromMachineResponse" message="tns:IWCFServerClient_GetProcessesFromMachine_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetServicesFromMachine">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetServicesFromMachine" message="tns:IWCFServerClient_GetServicesFromMachine_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetServicesFromMachineResponse" message="tns:IWCFServerClient_GetServicesFromMachine_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetApplicationsFromMachine">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/GetApplicationsFromMachine" message="tns:IWCFServerClient_GetApplicationsFromMachine_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/GetApplicationsFromMachineResponse" message="tns:IWCFServerClient_GetApplicationsFromMachine_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="NotifyServer">
+      <wsdl:output wsam:Action="http://tempuri.org/IWCFServerClient/NotifyServer" message="tns:IWCFServerClient_NotifyServer_OutputCallbackMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IWCFServerClient/NotifyServerResponse" message="tns:IWCFServerClient_NotifyServer_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSDualHttpBinding_IWCFServerClient" type="tns:IWCFServerClient">
+    <wsp:PolicyReference URI="#WSDualHttpBinding_IWCFServerClient_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClientRegistration">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/ClientRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientProcesses">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/ClientProcesses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientServices">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/ClientServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientApplications">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/ClientApplications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessById">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetProcessById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopProcessById">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StopProcessById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartProcessById">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/RestartProcessById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopServiceByName">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StopServiceByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartServiceByName">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StartServiceByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartApplicationByPath">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StartApplicationByPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessesFromClient">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetProcessesFromClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesFromClient">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetServicesFromClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsFromClient">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetApplicationsFromClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveClientFromList">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/RemoveClientFromList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerClosed">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/ServerClosed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Method1">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/Method1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessById">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/ProcessById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopProcessId">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StopProcessId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartProcessId">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/RestartProcessId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopServiceName">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StopServiceName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartServiceName">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StartServiceName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartApplicationPath">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/StartApplicationPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessesFromMachine">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetProcessesFromMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesFromMachine">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetServicesFromMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsFromMachine">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/GetApplicationsFromMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyServer">
+      <soap12:operation soapAction="http://tempuri.org/IWCFServerClient/NotifyServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WCFServerClient">
+    <wsdl:port name="WSDualHttpBinding_IWCFServerClient" binding="tns:WSDualHttpBinding_IWCFServerClient">
+      <soap12:address location="http://localhost:59393/WCFServerClient.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:59393/WCFServerClient.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
